@@ -1,0 +1,24 @@
+# This file contains additional build requirements that did not get
+# picked up automatically. One name per line, no whitespace.
+karchive-dev
+kcodecs-dev
+kglobalaccel-dev
+kiconthemes-dev
+kwidgetsaddons-dev
+kcompletion-dev
+kitemviews-dev
+kjobwidgets-dev
+solid-dev
+kxmlgui-dev
+kjs-dev
+knotifications-dev
+kparts-dev
+ktextwidgets-dev
+sonnet-dev
+kwallet-dev
+kwindowsystem-dev
+phonon-dev
+libjpeg-turbo-dev
+zlib-dev
+gperf
+openssl-dev
