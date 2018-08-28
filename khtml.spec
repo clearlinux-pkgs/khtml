@@ -6,7 +6,7 @@
 #
 Name     : khtml
 Version  : 5.49.0
-Release  : 2
+Release  : 3
 URL      : https://download.kde.org/stable/frameworks/5.49/portingAids/khtml-5.49.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.49/portingAids/khtml-5.49.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.49/portingAids/khtml-5.49.0.tar.xz.sig
@@ -43,6 +43,7 @@ BuildRequires : perl
 BuildRequires : phonon-dev
 BuildRequires : pkgconfig(libpng)
 BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtx11extras-dev
 BuildRequires : solid-dev
 BuildRequires : sonnet-dev
 BuildRequires : zlib-dev
@@ -108,7 +109,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534117113
+export SOURCE_DATE_EPOCH=1535429282
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -116,7 +117,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1534117113
+export SOURCE_DATE_EPOCH=1535429282
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/khtml
 cp COPYING.GPL3 %{buildroot}/usr/share/doc/khtml/COPYING.GPL3
@@ -144,6 +145,8 @@ popd
 /usr/share/kservices5/khtmlimage.desktop
 /usr/share/kservices5/kjavaappletviewer.desktop
 /usr/share/kservices5/kmultipart.desktop
+/usr/share/xdg/khtml.categories
+/usr/share/xdg/khtmlrc
 
 %files dev
 %defattr(-,root,root,-)
