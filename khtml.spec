@@ -5,20 +5,21 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : khtml
-Version  : 5.50.0
-Release  : 4
-URL      : https://download.kde.org/stable/frameworks/5.50/portingAids/khtml-5.50.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.50/portingAids/khtml-5.50.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.50/portingAids/khtml-5.50.0.tar.xz.sig
+Version  : 5.51.0
+Release  : 5
+URL      : https://download.kde.org/stable/frameworks/5.51/portingAids/khtml-5.51.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.51/portingAids/khtml-5.51.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.51/portingAids/khtml-5.51.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.0 LGPL-2.1
-Requires: khtml-lib
-Requires: khtml-license
-Requires: khtml-data
-Requires: khtml-locales
+Requires: khtml-data = %{version}-%{release}
+Requires: khtml-lib = %{version}-%{release}
+Requires: khtml-license = %{version}-%{release}
+Requires: khtml-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : extra-cmake-modules gperf
 BuildRequires : gperf
 BuildRequires : karchive-dev
 BuildRequires : kcodecs-dev
@@ -42,7 +43,7 @@ BuildRequires : openssl-dev
 BuildRequires : perl
 BuildRequires : phonon-dev
 BuildRequires : pkgconfig(libpng)
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 BuildRequires : solid-dev
 BuildRequires : sonnet-dev
 BuildRequires : zlib-dev
@@ -65,9 +66,9 @@ data components for the khtml package.
 %package dev
 Summary: dev components for the khtml package.
 Group: Development
-Requires: khtml-lib
-Requires: khtml-data
-Provides: khtml-devel
+Requires: khtml-lib = %{version}-%{release}
+Requires: khtml-data = %{version}-%{release}
+Provides: khtml-devel = %{version}-%{release}
 
 %description dev
 dev components for the khtml package.
@@ -76,8 +77,8 @@ dev components for the khtml package.
 %package lib
 Summary: lib components for the khtml package.
 Group: Libraries
-Requires: khtml-data
-Requires: khtml-license
+Requires: khtml-data = %{version}-%{release}
+Requires: khtml-license = %{version}-%{release}
 
 %description lib
 lib components for the khtml package.
@@ -100,7 +101,7 @@ locales components for the khtml package.
 
 
 %prep
-%setup -q -n khtml-5.50.0
+%setup -q -n khtml-5.51.0
 %patch1 -p1
 
 %build
@@ -108,20 +109,20 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536431008
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1539702179
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1536431008
+export SOURCE_DATE_EPOCH=1539702179
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/khtml
-cp COPYING.GPL3 %{buildroot}/usr/share/doc/khtml/COPYING.GPL3
-cp COPYING.LGPL-2 %{buildroot}/usr/share/doc/khtml/COPYING.LGPL-2
-cp COPYING.LIB %{buildroot}/usr/share/doc/khtml/COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/khtml
+cp COPYING.GPL3 %{buildroot}/usr/share/package-licenses/khtml/COPYING.GPL3
+cp COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/khtml/COPYING.LGPL-2
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/khtml/COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -202,7 +203,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KHtml.so.5
-/usr/lib64/libKF5KHtml.so.5.50.0
+/usr/lib64/libKF5KHtml.so.5.51.0
 /usr/lib64/qt5/plugins/kf5/parts/khtmladaptorpart.so
 /usr/lib64/qt5/plugins/kf5/parts/khtmlimagepart.so
 /usr/lib64/qt5/plugins/kf5/parts/khtmlpart.so
@@ -210,10 +211,10 @@ popd
 /usr/lib64/qt5/plugins/kf5/parts/kmultipart.so
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/khtml/COPYING.GPL3
-/usr/share/doc/khtml/COPYING.LGPL-2
-/usr/share/doc/khtml/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/khtml/COPYING.GPL3
+/usr/share/package-licenses/khtml/COPYING.LGPL-2
+/usr/share/package-licenses/khtml/COPYING.LIB
 
 %files locales -f khtml5.lang
 %defattr(-,root,root,-)
