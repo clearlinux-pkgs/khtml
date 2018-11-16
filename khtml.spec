@@ -6,7 +6,7 @@
 #
 Name     : khtml
 Version  : 5.51.0
-Release  : 5
+Release  : 6
 URL      : https://download.kde.org/stable/frameworks/5.51/portingAids/khtml-5.51.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.51/portingAids/khtml-5.51.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.51/portingAids/khtml-5.51.0.tar.xz.sig
