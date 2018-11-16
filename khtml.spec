@@ -6,7 +6,7 @@
 #
 Name     : khtml
 Version  : 5.51.0
-Release  : 6
+Release  : 7
 URL      : https://download.kde.org/stable/frameworks/5.51/portingAids/khtml-5.51.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.51/portingAids/khtml-5.51.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.51/portingAids/khtml-5.51.0.tar.xz.sig
@@ -54,6 +54,14 @@ Wynn Wilkes- November 14, 2000
 I've just completed a large update that fixes a large number of bugs.  The
 update also adds applet security.  The security update requires a Java 2
 jvm.
+
+%package abi
+Summary: abi components for the khtml package.
+Group: Default
+
+%description abi
+abi components for the khtml package.
+
 
 %package data
 Summary: data components for the khtml package.
@@ -109,7 +117,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1539702179
+export SOURCE_DATE_EPOCH=1542399977
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -117,7 +125,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1539702179
+export SOURCE_DATE_EPOCH=1542399977
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khtml
 cp COPYING.GPL3 %{buildroot}/usr/share/package-licenses/khtml/COPYING.GPL3
@@ -130,6 +138,10 @@ popd
 
 %files
 %defattr(-,root,root,-)
+
+%files abi
+%defattr(-,root,root,-)
+/usr/share/abi/libKF5KHtml.so.5.abi
 
 %files data
 %defattr(-,root,root,-)
