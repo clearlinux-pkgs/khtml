@@ -1,20 +1,3 @@
-diff -purN khtml-5.48.0.org/CMakeLists.txt khtml-5.48.0/CMakeLists.txt
---- khtml-5.48.0.org/CMakeLists.txt	2018-07-07 22:30:52.000000000 +0000
-+++ khtml-5.48.0/CMakeLists.txt	2018-07-26 04:25:38.950376906 +0000
-@@ -75,13 +75,6 @@ set_package_properties(JPEG PROPERTIES D
-                        PURPOSE "Required for decoding and displaying JPEG images"
-                       )
- 
--find_package(GIF)
--set_package_properties(GIF PROPERTIES DESCRIPTION "GIF decoding library"
--                       URL "http://sourceforge.net/projects/giflib"
--                       TYPE REQUIRED
--                       PURPOSE "Required for decoding and displaying GIF images"
--                      )
--
- find_package(PNG)
- set_package_properties(PNG PROPERTIES DESCRIPTION "PNG decoding library"
-                        URL "http://www.libpng.org/pub/png"
 diff -purN khtml-5.48.0.org/src/CMakeLists.txt khtml-5.48.0/src/CMakeLists.txt
 --- khtml-5.48.0.org/src/CMakeLists.txt	2018-07-07 22:30:52.000000000 +0000
 +++ khtml-5.48.0/src/CMakeLists.txt	2018-07-26 04:26:03.523376564 +0000
@@ -36,3 +19,19 @@ diff -purN khtml-5.48.0.org/src/CMakeLists.txt khtml-5.48.0/src/CMakeLists.txt
      loaderDB->registerLoaderProvider(new QImageIOLoaderProvider);
  }
  
+--- khtml-5.55.0/CMakeLists.txt~	2019-02-02 23:57:30.000000000 +0000
++++ khtml-5.55.0/CMakeLists.txt	2019-02-17 16:09:24.387472280 +0000
+@@ -75,13 +75,6 @@
+                        PURPOSE "Required for decoding and displaying JPEG images"
+                       )
+ 
+-find_package(GIF)
+-set_package_properties(GIF PROPERTIES DESCRIPTION "GIF decoding library"
+-                       URL "https://sourceforge.net/projects/giflib"
+-                       TYPE REQUIRED
+-                       PURPOSE "Required for decoding and displaying GIF images"
+-                      )
+-
+ find_package(PNG)
+ set_package_properties(PNG PROPERTIES DESCRIPTION "PNG decoding library"
+                        URL "http://www.libpng.org/pub/png"
