@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : khtml
-Version  : 5.55.0
-Release  : 9
-URL      : https://download.kde.org/stable/frameworks/5.55/portingAids/khtml-5.55.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.55/portingAids/khtml-5.55.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.55/portingAids/khtml-5.55.0.tar.xz.sig
+Version  : 5.56.0
+Release  : 10
+URL      : https://download.kde.org/stable/frameworks/5.56/portingAids/khtml-5.56.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.56/portingAids/khtml-5.56.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.56/portingAids/khtml-5.56.0.tar.xz.sig
 Summary  : KHTML APIs
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.0 LGPL-2.1
@@ -69,6 +69,7 @@ Group: Development
 Requires: khtml-lib = %{version}-%{release}
 Requires: khtml-data = %{version}-%{release}
 Provides: khtml-devel = %{version}-%{release}
+Requires: khtml = %{version}-%{release}
 
 %description dev
 dev components for the khtml package.
@@ -101,7 +102,7 @@ locales components for the khtml package.
 
 
 %prep
-%setup -q -n khtml-5.55.0
+%setup -q -n khtml-5.56.0
 %patch1 -p1
 
 %build
@@ -109,15 +110,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550420352
+export SOURCE_DATE_EPOCH=1552172559
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1550420352
+export SOURCE_DATE_EPOCH=1552172559
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khtml
 cp COPYING.GPL3 %{buildroot}/usr/share/package-licenses/khtml/COPYING.GPL3
@@ -203,7 +205,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KHtml.so.5
-/usr/lib64/libKF5KHtml.so.5.55.0
+/usr/lib64/libKF5KHtml.so.5.56.0
 /usr/lib64/qt5/plugins/kf5/parts/khtmladaptorpart.so
 /usr/lib64/qt5/plugins/kf5/parts/khtmlimagepart.so
 /usr/lib64/qt5/plugins/kf5/parts/khtmlpart.so
