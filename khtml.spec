@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : khtml
-Version  : 5.58.0
-Release  : 14
-URL      : https://download.kde.org/stable/frameworks/5.58/portingAids/khtml-5.58.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.58/portingAids/khtml-5.58.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.58/portingAids/khtml-5.58.0.tar.xz.sig
+Version  : 5.59.0
+Release  : 15
+URL      : https://download.kde.org/stable/frameworks/5.59/portingAids/khtml-5.59.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.59/portingAids/khtml-5.59.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.59/portingAids/khtml-5.59.0.tar.xz.sig
 Summary  : KHTML APIs
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.0 LGPL-2.1
@@ -50,8 +50,10 @@ BuildRequires : zlib-dev
 Patch1: nogif.patch
 
 %description
-This module contains the ECMAScript a.k.a. JavaScript language bindings for
-the KHTML Part.
+Wynn Wilkes- November 14, 2000
+I've just completed a large update that fixes a large number of bugs.  The
+update also adds applet security.  The security update requires a Java 2
+jvm.
 
 %package data
 Summary: data components for the khtml package.
@@ -101,7 +103,7 @@ locales components for the khtml package.
 
 
 %prep
-%setup -q -n khtml-5.58.0
+%setup -q -n khtml-5.59.0
 %patch1 -p1
 
 %build
@@ -109,7 +111,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557814504
+export SOURCE_DATE_EPOCH=1560039621
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -124,7 +126,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557814504
+export SOURCE_DATE_EPOCH=1560039621
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khtml
 cp COPYING.GPL3 %{buildroot}/usr/share/package-licenses/khtml/COPYING.GPL3
@@ -210,7 +212,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KHtml.so.5
-/usr/lib64/libKF5KHtml.so.5.58.0
+/usr/lib64/libKF5KHtml.so.5.59.0
 /usr/lib64/qt5/plugins/kf5/parts/khtmladaptorpart.so
 /usr/lib64/qt5/plugins/kf5/parts/khtmlimagepart.so
 /usr/lib64/qt5/plugins/kf5/parts/khtmlpart.so
