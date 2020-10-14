@@ -1,7 +1,11 @@
 libKF5Archive.so.5
+libKF5Auth.so.5
+libKF5AuthCore.so.5
+libKF5Bookmarks.so.5
 libKF5Codecs.so.5
 libKF5Completion.so.5
 libKF5ConfigCore.so.5
+libKF5ConfigGui.so.5
 libKF5ConfigWidgets.so.5
 libKF5CoreAddons.so.5
 libKF5GlobalAccel.so.5
@@ -10,6 +14,7 @@ libKF5IconThemes.so.5
 libKF5JS.so.5
 libKF5JobWidgets.so.5
 libKF5KIOCore.so.5
+libKF5KIOGui.so.5
 libKF5KIOWidgets.so.5
 libKF5Notifications.so.5
 libKF5Parts.so.5
@@ -21,6 +26,7 @@ libKF5Wallet.so.5
 libKF5WidgetsAddons.so.5
 libKF5WindowSystem.so.5
 libKF5XmlGui.so.5
+libQt5Concurrent.so.5
 libQt5Core.so.5
 libQt5DBus.so.5
 libQt5Gui.so.5
@@ -35,6 +41,7 @@ libgcc_s.so.1
 libjpeg.so.62
 libm.so.6
 libphonon4qt5.so.4
+libphonon4qt5experimental.so.4
 libpng16.so.16
 libstdc++.so.6
 libz.so.1
