@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : khtml
-Version  : 5.76.0
-Release  : 32
-URL      : https://download.kde.org/stable/frameworks/5.76/portingAids/khtml-5.76.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.76/portingAids/khtml-5.76.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.76/portingAids/khtml-5.76.0.tar.xz.sig
+Version  : 5.77.0
+Release  : 33
+URL      : https://download.kde.org/stable/frameworks/5.77/portingAids/khtml-5.77.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.77/portingAids/khtml-5.77.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.77/portingAids/khtml-5.77.0.tar.xz.sig
 Summary  : KHTML APIs
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.0 LGPL-2.1
@@ -106,8 +106,8 @@ locales components for the khtml package.
 
 
 %prep
-%setup -q -n khtml-5.76.0
-cd %{_builddir}/khtml-5.76.0
+%setup -q -n khtml-5.77.0
+cd %{_builddir}/khtml-5.77.0
 %patch1 -p1
 
 %build
@@ -115,7 +115,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1605426827
+export SOURCE_DATE_EPOCH=1608168336
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -131,12 +131,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1605426827
+export SOURCE_DATE_EPOCH=1608168336
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khtml
-cp %{_builddir}/khtml-5.76.0/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/khtml/8624bcdae55baeef00cd11d5dfcfa60f68710a02
-cp %{_builddir}/khtml-5.76.0/COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/khtml/ba8966e2473a9969bdcab3dc82274c817cfd98a1
-cp %{_builddir}/khtml-5.76.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/khtml/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/khtml-5.77.0/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/khtml/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/khtml-5.77.0/COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/khtml/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/khtml-5.77.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/khtml/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -218,7 +218,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KHtml.so.5
-/usr/lib64/libKF5KHtml.so.5.76.0
+/usr/lib64/libKF5KHtml.so.5.77.0
 /usr/lib64/qt5/plugins/kf5/parts/khtmladaptorpart.so
 /usr/lib64/qt5/plugins/kf5/parts/khtmlimagepart.so
 /usr/lib64/qt5/plugins/kf5/parts/khtmlpart.so
