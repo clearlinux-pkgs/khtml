@@ -6,7 +6,7 @@
 #
 Name     : khtml
 Version  : 5.89.0
-Release  : 43
+Release  : 44
 URL      : https://download.kde.org/stable/frameworks/5.89/portingAids/khtml-5.89.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.89/portingAids/khtml-5.89.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.89/portingAids/khtml-5.89.0.tar.xz.sig
@@ -17,7 +17,6 @@ Requires: khtml-data = %{version}-%{release}
 Requires: khtml-lib = %{version}-%{release}
 Requires: khtml-license = %{version}-%{release}
 Requires: khtml-locales = %{version}-%{release}
-BuildRequires : apache-ant
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules gperf
@@ -116,7 +115,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1639699795
+export SOURCE_DATE_EPOCH=1640036976
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -132,7 +131,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1639699795
+export SOURCE_DATE_EPOCH=1640036976
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khtml
 cp %{_builddir}/khtml-5.89.0/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/khtml/8624bcdae55baeef00cd11d5dfcfa60f68710a02
