@@ -7,7 +7,7 @@
 #
 Name     : khtml
 Version  : 5.106.0
-Release  : 64
+Release  : 65
 URL      : https://download.kde.org/stable/frameworks/5.106/portingAids/khtml-5.106.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.106/portingAids/khtml-5.106.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.106/portingAids/khtml-5.106.0.tar.xz.sig
@@ -119,7 +119,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684879303
+export SOURCE_DATE_EPOCH=1685578328
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -152,7 +152,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684879303
+export SOURCE_DATE_EPOCH=1685578328
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khtml
 cp %{_builddir}/khtml-%{version}/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/khtml/8624bcdae55baeef00cd11d5dfcfa60f68710a02 || :
@@ -186,7 +186,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5KHtml.so
 /usr/include/KF5/KHtml/KHTMLPart
 /usr/include/KF5/KHtml/KHTMLSettings
 /usr/include/KF5/KHtml/KHTMLView
@@ -239,7 +238,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5KHtml.so.5
 /V3/usr/lib64/libKF5KHtml.so.5.106.0
 /V3/usr/lib64/qt5/plugins/kf5/parts/khtmladaptorpart.so
 /V3/usr/lib64/qt5/plugins/kf5/parts/khtmlimagepart.so
