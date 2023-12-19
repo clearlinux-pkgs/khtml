@@ -8,11 +8,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : khtml
-Version  : 5.112.0
-Release  : 72
-URL      : https://download.kde.org/stable/frameworks/5.112/portingAids/khtml-5.112.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.112/portingAids/khtml-5.112.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.112/portingAids/khtml-5.112.0.tar.xz.sig
+Version  : 5.113.0
+Release  : 73
+URL      : https://download.kde.org/stable/frameworks/5.113/portingAids/khtml-5.113.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.113/portingAids/khtml-5.113.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.113/portingAids/khtml-5.113.0.tar.xz.sig
 Summary  : KHTML APIs
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.0 LGPL-2.1
@@ -47,7 +47,6 @@ BuildRequires : libjpeg-turbo-dev
 BuildRequires : libpng-dev
 BuildRequires : openssl-dev
 BuildRequires : perl
-BuildRequires : perl(Getopt::Long)
 BuildRequires : phonon-dev
 BuildRequires : pkgconfig(libpng)
 BuildRequires : qtbase-dev
@@ -113,8 +112,8 @@ locales components for the khtml package.
 
 
 %prep
-%setup -q -n khtml-5.112.0
-cd %{_builddir}/khtml-5.112.0
+%setup -q -n khtml-5.113.0
+cd %{_builddir}/khtml-5.113.0
 %patch -P 1 -p1
 
 %build
@@ -122,7 +121,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1701990346
+export SOURCE_DATE_EPOCH=1703018723
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -181,7 +180,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1701990346
+export SOURCE_DATE_EPOCH=1703018723
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/khtml
 cp %{_builddir}/khtml-%{version}/COPYING.GPL3 %{buildroot}/usr/share/package-licenses/khtml/8624bcdae55baeef00cd11d5dfcfa60f68710a02 || :
@@ -267,13 +266,13 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5KHtml.so.5.112.0
+/V3/usr/lib64/libKF5KHtml.so.5.113.0
 /V3/usr/lib64/qt5/plugins/kf5/parts/khtmladaptorpart.so
 /V3/usr/lib64/qt5/plugins/kf5/parts/khtmlimagepart.so
 /V3/usr/lib64/qt5/plugins/kf5/parts/khtmlpart.so
 /V3/usr/lib64/qt5/plugins/kf5/parts/kmultipart.so
 /usr/lib64/libKF5KHtml.so.5
-/usr/lib64/libKF5KHtml.so.5.112.0
+/usr/lib64/libKF5KHtml.so.5.113.0
 /usr/lib64/qt5/plugins/kf5/parts/khtmladaptorpart.so
 /usr/lib64/qt5/plugins/kf5/parts/khtmlimagepart.so
 /usr/lib64/qt5/plugins/kf5/parts/khtmlpart.so
